@@ -1,0 +1,63 @@
+---
+title: "550 Project"
+author: "Xiuran Lin"
+date: "`r Sys.Date()`"
+output: html_document
+---
+# **Introduction**
+## My dataset is about stroke prediction. According to the World Health Organization (WHO) stroke is the 2nd leading cause of death globally, responsible for approximately 11% of total deaths. I am going to summarize the data with some descriptive analysis including tables and figures to show the possible difference or correlation from the data.
+
+# **Attribute Information**
+## 1) id: unique identifier
+## 2) gender: "Male", "Female" or "Other"
+## 3) age: age of the patient
+## 4) hypertension: 0 if the patient doesn't have hypertension, 1 if the patient has hypertension
+## 5) heart_disease: 0 if the patient doesn't have any heart diseases, 1 if the patient has a heart disease
+## 6) ever_married: "No" or "Yes"
+## 7) work_type: "children", "Govt_jov", "Never_worked", "Private" or "Self-employed"
+## 8) Residence_type: "Rural" or "Urban"
+## 9) avg_glucose_level: average glucose level in blood
+## 10) bmi: body mass index
+## 11) smoking_status: "formerly smoked", "never smoked", "smokes" or "Unknown"*
+## 12) stroke: 1 if the patient had a stroke or 0 if not
+## *Note: "Unknown" in smoking_status means that the information is unavailable for this patient
+
+```{r, set-chunk-opts, echo = FALSE, eval = TRUE, warning=FALSE, message=FALSE}
+library(knitr)
+library(here)
+library(dplyr)
+library(tidyverse)
+opts_chunk$set(
+  echo = TRUE, warning = FALSE, message = FALSE
+)
+```
+# **Read data set**
+
+```{r, load-data, message=FALSE}
+here::i_am("550_project_report_Xiuran_Lin.Rmd")
+data <- readRDS(
+  file = here::here("output/data_clean.rds")
+)
+
+```
+# **Table**
+#### This table showed BMI level and average glucose level for different work type among study participants.
+```{r, table1}
+library(gtsummary)
+
+table_one <- readRDS(
+  file = here::here("output/table_one.rds")
+)
+table_one
+```
+
+
+# **Graph Analysis**
+#### This is the mosaic plot to show the difference of bmi level between people who have married and people who have not married.
+```{r figure, fig.width=10, fig.height=8}
+library(ggplot2)
+
+knitr::include_graphics(
+  here::here("output/mosaicplot.png")
+)
+```
