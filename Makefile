@@ -10,3 +10,6 @@ output/mosaicplot.png:
 output/table_one.rds: code/01_make_table.R
 	Rscript code/01_make_table.R
 
+.PHONY: install
+install:
+	Rscript -e "renv::restore(prompt = FALSE)"
