@@ -35,9 +35,9 @@ opts_chunk$set(
 
 ```{r, load-data, message=FALSE}
 here::i_am("550_project_report_Xiuran_Lin.Rmd")
-data <- readRDS(
-  file = here::here("output/data_clean.rds")
-)
+ data <- readRDS(
+   file = here::here("output/data_clean.rds")
+ )
 
 ```
 # **Table**
